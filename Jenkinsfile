@@ -11,7 +11,7 @@ pipeline {
 		stage('Checkout') {
 			steps{
 				sh 'mvn --version' // script shell
-                sh 'docker version'
+                sh 'sudo docker version'
 				echo "Build"
                 echo "$PATH"
                 echo "BUILDER_NUMBER -$env.BUILD_NUMBER"
