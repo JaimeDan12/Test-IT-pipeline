@@ -2,7 +2,26 @@ pipeline {
 	agent  any
 	// agent { docker { image 'maven:3.6.3'} }
 
+    // environment{
+    //     dockerHome= tool 'Mydocker'
+    //     nodeHome= tool 'MyNode'
+    //     PATH="$dockerHome/bin:$nodeHome/bin:$PATH"
+    // }
 	stages{
+		stage('Checkout') {
+		 	steps{
+				bat 'node --version' // script shell
+                bat 'docker version'
+		// 		echo "Build"
+        //         echo "$PATH"
+        //         echo "BUILDER_NUMBER -$env.BUILD_NUMBER"
+        //         echo "BUILDER_ID -$env.BUILD_ID"
+        //         echo "BUILDER_TAG -$env.BUILD_TAG"
+        //         echo "JOB_NAME -$env.jOB_NAME"
+        //         echo "BUILDER_URL -$env.BUILD_URL"
+		 	}
+		 }
+		 
 		stage('Build'){
 			steps{
 				echo 'Build'
