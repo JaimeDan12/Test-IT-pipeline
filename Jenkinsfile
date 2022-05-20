@@ -10,8 +10,8 @@ pipeline {
 	stages{
 		stage('Checkout') {
 			steps{
-				// bat 'node --version' // script shell
-                // bat 'docker version'
+				sh 'node --version' // script shell
+                sh 'docker version'
 				echo "Build"
                 echo "$PATH"
                 echo "BUILDER_NUMBER -$env.BUILD_NUMBER"
